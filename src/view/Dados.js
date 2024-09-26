@@ -1,7 +1,7 @@
 
 
-import { useEffect, useState } from "react";
-import { StyleSheet, Touchable, TouchableOpacity, View, Text } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { Avatar, Button, TextInput } from "react-native-paper";
 
 export default Dados = ({ navigation }) => {
@@ -14,7 +14,7 @@ export default Dados = ({ navigation }) => {
     });
 
     const callSimulacao = () => {
-        navigation.navigate('Simulacao')
+        navigation.navigate('Simulacao',{Dados:user})
     }
     return (
         <View style={styles.container}>

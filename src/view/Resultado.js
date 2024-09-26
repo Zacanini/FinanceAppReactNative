@@ -1,17 +1,37 @@
 
 
-import { StyleSheet,Touchable, TouchableOpacity, View,Text } from "react-native";
+import { StyleSheet, View,Text } from "react-native";
+import { Icon, MD3Colors } from "react-native-paper";
+import valorParcela from "../service/FinanciamentoService";
 
-export default Resultado = () => {
+export default Resultado = ({route}) => {
+
+    const { Dados } = route.params;
 
     return(
         <View style={styles.container}>
 
-            <Text style={styles.titulo}>RESULTADO</Text>
+            <Text style={styles.titulo}>RESULTADO FINANCIAMENTO</Text>
+            <Icon
+                source="alarm-panel"
+                color={MD3Colors.error50}
+                size={58}
+                
+            />
 
-            <TouchableOpacity style={styles.btn}>
+            <Text>
+                Olá sr {Dados.nome}
+            </Text>
+            <Text>
+                O emprestimo é de R$ {Dados.valorFinanciado}
+            </Text>
+            <Text>
+                A prestação será de {Dados.parcelas} de R$ {valorParcela(Dados)}
+            </Text>
+
+           {/* <TouchableOpacity style={styles.btn}>
                 <Text >Próximo</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
         </View>
 
     )
